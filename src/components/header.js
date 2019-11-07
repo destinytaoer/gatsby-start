@@ -1,9 +1,13 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 export default props => {
   return (
     <div>
-      <h1>{props.headerText}</h1>
+      <Link to="/">
+        <h1>{props.headerText}</h1>
+      </Link>
+      <Link to="/about">About</Link>
     </div>
   )
 }
