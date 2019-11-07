@@ -1,17 +1,45 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { css } from '@emotion/core'
+import { rhythm } from '../utils/typography'
 
 const ListLink = props => (
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+  <li
+    css={css`
+      display: inline-block;
+      margin-right: ${rhythm(2)};
+    `}
+  >
     <Link to={props.to}>{props.children}</Link>
   </li>
 )
 export default props => (
-  <header style={{ marginBottom: `1.5rem` }}>
-    <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-      <h1 style={{ display: `inline` }}>{props.headerText}</h1>
+  <header
+    css={css`
+      margin-bottom: 1.5rem;
+    `}
+  >
+    <Link
+      to="/"
+      css={css`
+        text-shadow: none;
+        background-image: none;
+      `}
+    >
+      <h1
+        css={css`
+          display: inline;
+        `}
+      >
+        {props.headerText}
+      </h1>
     </Link>
-    <ul style={{ listStyle: `none`, float: `right` }}>
+    <ul
+      css={css`
+        list-style: none;
+        float: right;
+      `}
+    >
       <ListLink to="/about">About</ListLink>
       <ListLink to="/contact">Contact</ListLink>
     </ul>
