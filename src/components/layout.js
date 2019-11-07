@@ -12,7 +12,7 @@ export default ({ children }) => (
       padding-top: ${rhythm(1.5)};
     `}
   >
-    <Header headerText="Destiny'Note" />
+    <Header />
     {children}
   </div>
 )

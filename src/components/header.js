@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import { rhythm } from '../utils/typography'
 
@@ -13,35 +13,46 @@ const ListLink = props => (
     <Link to={props.to}>{props.children}</Link>
   </li>
 )
-export default props => (
-  <header
-    css={css`
-      margin-bottom: 1.5rem;
-    `}
-  >
-    <Link
-      to="/"
+export default () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+  return (
+    <header
       css={css`
-        text-shadow: none;
-        background-image: none;
+        margin-bottom: 1.5rem;
       `}
     >
-      <h1
+      <Link
+        to="/"
         css={css`
-          display: inline;
+          text-shadow: none;
+          background-image: none;
         `}
       >
-        {props.headerText}
-      </h1>
-    </Link>
-    <ul
-      css={css`
-        list-style: none;
-        float: right;
-      `}
-    >
-      <ListLink to="/about">About</ListLink>
-      <ListLink to="/contact">Contact</ListLink>
-    </ul>
-  </header>
-)
+        <h1
+          css={css`
+            display: inline;
+          `}
+        >
+          {data.site.siteMetadata.title}
+        </h1>
+      </Link>
+      <ul
+        css={css`
+          list-style: none;
+          float: right;
+        `}
+      >
+        <ListLink to="/about">About</ListLink>
+        <ListLink to="/contact">Contact</ListLink>
+      </ul>
+    </header>
+  )
+}
