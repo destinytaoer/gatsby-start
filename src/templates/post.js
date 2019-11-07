@@ -1,10 +1,12 @@
 import React from 'react'
 import Layout from '../components/layout'
+import SEO from '../components/seo'
 import { graphql } from 'gatsby'
 export default ({ data }) => {
   const { markdownRemark: post } = data
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
       <div>
         <h2>{post.frontmatter.title}</h2>
         <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
@@ -20,6 +22,7 @@ export const query = graphql`
       frontmatter {
         title
       }
+      excerpt
     }
   }
 `

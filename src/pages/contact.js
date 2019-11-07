@@ -1,8 +1,10 @@
 import React from 'react'
+import SEO from '../components/seo'
 import Layout from '../components/layout'
 
 export default () => (
   <Layout>
+    <SEO title="Contact" />
     <h1>Contact Me</h1>
     <p>send me a message!</p>
     <ul>

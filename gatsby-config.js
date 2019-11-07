@@ -8,6 +8,8 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: `destiny'Note`,
+    description: `note front end technology`,
+    author: `destiny`,
   },
   plugins: [
     `gatsby-plugin-emotion`,
@@ -38,5 +40,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
   ],
 }
