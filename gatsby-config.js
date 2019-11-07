@@ -25,5 +25,18 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Destiny'Note`,
+        short_name: `Destiny`,
+        start_url: `/`,
+        background_color: `#6b37bf`,
+        theme_color: `#6b37bf`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }
