@@ -6,6 +6,9 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: `destiny'Note`,
+  },
   plugins: [
     `gatsby-plugin-emotion`,
     {
