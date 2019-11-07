@@ -1,9 +1,8 @@
 import React from 'react'
-import Header from '../components/header'
+import Layout from '../components/layout'
 
 export default () => (
-  <div>
-    <Header headerText="Destiny'Note" />
-    Hello world!
-  </div>
+  <Layout>
+    <div>Hello world!</div>
+  </Layout>
 )
