@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default () => {
+export default props => {
   return (
     <div>
-      <h1>Destiny'Note</h1>
+      <h1>{props.headerText}</h1>
     </div>
   )
 }

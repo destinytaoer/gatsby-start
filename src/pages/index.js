@@ -3,7 +3,7 @@ import Header from '../components/header'
 
 export default () => (
   <div>
-    <Header />
+    <Header headerText="Destiny'Note" />
     Hello world!
   </div>
 )
