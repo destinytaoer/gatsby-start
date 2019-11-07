@@ -6,4 +6,12 @@
 
 module.exports = {
   /* Your site config here */
+  plugins: [
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModile: `src/utils/typography`,
+      },
+    },
+  ],
 }
