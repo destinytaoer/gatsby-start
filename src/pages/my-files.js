@@ -1,10 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import SEO from '../components/seo'
 export default ({ data }) => {
-  console.log(data)
   return (
     <Layout>
+      <SEO title="404" description="Page Not Found" />
       <div>
         <h1>My Site's Files</h1>
         <table>
