@@ -12,6 +12,7 @@ module.exports = {
     author: `destiny`,
   },
   plugins: [
+    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,
@@ -37,7 +38,7 @@ module.exports = {
         background_color: `#6b37bf`,
         theme_color: `#6b37bf`,
         display: `standalone`,
-        icon: `src/images/icon.png`,
+        icon: `static/assets/icon.png`,
       },
     },
     `gatsby-plugin-offline`,

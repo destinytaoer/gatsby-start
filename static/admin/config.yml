@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: destinytaoer/gatsby-start
+
+media_folder: static/assets
+public_folder: assets
+
+display_url: https://destinytaoer.cn
+
+collections:
+  - name: posts
+    label: Blog
+    folder: src/posts
+    create: true
+    slug: '{{slug}}'
+    preview_path: posts/{{slug}}
+    fields:
+      - { name: path, label: Path, required: false }
+      - { name: date, label: Date, widget: date, format: 'YYYY-MM-DD' }
+      - { name: update, label: Date, widget: date, format: 'YYYY-MM-DD' }
+      - { name: title, label: Title }
+      - { name: tags, label: Tags, widget: list }
+      - { name: categories, label: Categories, widget: list }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
