@@ -7,8 +7,8 @@ export default ({ children }) => (
   <div
     css={css`
       margin: 0 auto;
-      max-width: 650px;
-      padding: ${rhythm(2)};
+      max-width: 750px;
+      padding: ${rhythm(1)};
       padding-top: ${rhythm(1.5)};
     `}
   >

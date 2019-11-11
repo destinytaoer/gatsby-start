@@ -1,4 +1,6 @@
 const path = require('path')
+const _ = require('lodash')
+
 const { createFilePath } = require(`gatsby-source-filesystem`)
 // 每当 GraphQL 数据中创建（或更新）新节点时，Gatsby 都会调用此函数
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -19,12 +21,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 // 创建页面
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   // 查询所有 md 文件数据
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      posts: allMarkdownRemark {
         edges {
           node {
             fields {
@@ -33,17 +35,39 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      tags: allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
     }
   `)
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query`)
+    return
+  }
   // 逐个创建相应的页面
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const posts = result.data.posts.edges
+  const postTemplate = path.resolve(`./src/templates/post.js`)
+  posts.forEach(({ node }) => {
     createPage({
       path: node.fields.slug, // 路径
       // 创建页面需要模板组件
-      component: path.resolve(`./src/templates/post.js`),
+      component: postTemplate,
       context: {
         // 传递给模板组件中在查询时, 接收的变量值
         slug: node.fields.slug,
+      },
+    })
+  })
+  const tags = result.data.tags.group
+  const tagTemplate = path.resolve('./src/templates/tag.js')
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag.fieldValue)}`,
+      component: tagTemplate,
+      context: {
+        tag: tag.fieldValue,
       },
     })
   })

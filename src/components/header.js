@@ -62,6 +62,7 @@ export default () => {
           float: right;
         `}
       >
+        <ListLink to="/tags">Tags</ListLink>
         <ListLink to="/about">About</ListLink>
         <ListLink to="/contact">Contact</ListLink>
       </ul>
