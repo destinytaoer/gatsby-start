@@ -12,12 +12,21 @@ module.exports = {
     author: `destiny`,
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/static/assets`,
+      },
+    },
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModile: `src/utils/typography`,
+        pathToConfigModile: `${__dirname}/src/utils/typography`,
       },
     },
     {
@@ -28,6 +37,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    // `gatsby-theme-docz`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,

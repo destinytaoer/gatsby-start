@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import { css } from '@emotion/core'
 import { rhythm } from '../utils/typography'
 
@@ -21,6 +22,16 @@ export default () => {
           title
         }
       }
+      file(relativePath: { eq: "icon.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+          fixed(width: 80, height: 80) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `)
   return (
@@ -36,6 +47,7 @@ export default () => {
           background-image: none;
         `}
       >
+        <Img fixed={data.file.childImageSharp.fixed}></Img>
         <h1
           css={css`
             display: inline;
