@@ -40,6 +40,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           fieldValue
         }
       }
+      categories: allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___categories) {
+          fieldValue
+        }
+      }
     }
   `)
   if (result.errors) {
@@ -68,6 +73,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,
+      },
+    })
+  })
+  const categories = result.data.categories.group
+  const categoryTemplate = path.resolve('./src/templates/category.js')
+  categories.forEach(category => {
+    createPage({
+      path: `/categories/${_.kebabCase(category.fieldValue)}`,
+      component: categoryTemplate,
+      context: {
+        category: category.fieldValue,
       },
     })
   })

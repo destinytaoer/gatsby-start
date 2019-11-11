@@ -63,6 +63,7 @@ export default () => {
         `}
       >
         <ListLink to="/tags">Tags</ListLink>
+        <ListLink to="/categories">Categories</ListLink>
         <ListLink to="/about">About</ListLink>
         <ListLink to="/contact">Contact</ListLink>
       </ul>
