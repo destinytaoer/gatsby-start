@@ -10,7 +10,7 @@ display_url: https://destinytaoer.cn
 collections:
   - name: posts
     label: Blog
-    folder: src/posts
+    folder: src/content/posts
     create: true
     slug: '{{slug}}'
     preview_path: posts/{{slug}}
