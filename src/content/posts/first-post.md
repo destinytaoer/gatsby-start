@@ -12,12 +12,11 @@ copyright: true
 
 ## 前言
 
-很多人都会认为观察者（Observer）模式等同于发布（Publish）/订阅（Subscribe）模式，发布订阅模式里的Publisher 就是观察者模式里的 Subject，而 Subscriber，就是 Observer。实际上，它们的实现思路是非常相似的，但是其流程结构是存在区别的。发布订阅模式可以说是派生自观察者模式的。
+很多人都会认为观察者（Observer）模式等同于发布（Publish）/订阅（Subscribe）模式，发布订阅模式里的 Publisher 就是观察者模式里的 Subject，而 Subscriber，就是 Observer。实际上，它们的实现思路是非常相似的，但是其流程结构是存在区别的。发布订阅模式可以说是派生自观察者模式的。
 
 <!-- more -->
 
 ## 观察者模式
-
 
 ![image.png](https://cdn.nlark.com/yuque/0/2019/png/190267/1556075651232-6eb7b787-a61f-453b-8fa5-40c53e00742c.png#align=left&display=inline&height=267&name=image.png&originHeight=316&originWidth=513&size=20925&status=done&width=433)
 
@@ -27,36 +26,38 @@ copyright: true
 
 ```javascript
 // 发布者，发布者拥有观察者列表
-class Subject{
-  constructor(){
-    this.observerList = [];// 观察者列表
-	}
-	addObserver(observer){
-  	this.observerList.push(observer);
-	}
-	removeObserver(observer){
-  	for (let i = 0; i < this.observerList.length; i++) {
+// highlight-next-line
+class Subject {
+  constructor() {
+    this.observerList = [] // 观察者列表
+  }
+  addObserver(observer) {
+    this.observerList.push(observer)
+  }
+  removeObserver(observer) {
+    for (let i = 0; i < this.observerList.length; i++) {
       // 判断是否是源函数，这里考虑了 once 的特殊情况
-      if (this.observerList[i] === observer || this.observerList[i].source === observer) {
-        this.observerList.splice(i, 1);
-        break;
+      if (
+        this.observerList[i] === observer ||
+        this.observerList[i].source === observer
+      ) {
+        this.observerList.splice(i, 1)
+        break
       }
     }
-	}
-	notify(data){
-    this.observerList.forEach((observer) => {
-    	observer.update(data);
+  }
+  notify(data) {
+    this.observerList.forEach(observer => {
+      observer.update(data)
     })
-	}
+  }
 }
 // 观察者，每个观察者都需要一个更新接口的方法
-class Observer{
-  constructor(){
-    
-  }
-  update(){
+class Observer {
+  constructor() {}
+  update() {
     // ...
-  };
+  }
 }
 ```
 
@@ -76,81 +77,81 @@ class Subscribe {
   //=> []创建一个容器，管理需要执行的方法
   //=> {} 实现多个不同类型容器
   constructor() {
-    this.ponds = {};
+    this.ponds = {}
   }
   //=> 订阅
-  on (type, listener) {
+  on(type, listener) {
     // listener 必须是函数
-    if (typeof listener !== "function")
-      throw new error("the second param of 'on' must be a function");
-    this.ponds[type] = this.ponds[type] || [];
+    if (typeof listener !== 'function')
+      throw new error("the second param of 'on' must be a function")
+    this.ponds[type] = this.ponds[type] || []
 
     // 判断事件池中是否已存在相同的 listener，存在则不添加
-    let n = this.ponds[type].indexOf(listener);
+    let n = this.ponds[type].indexOf(listener)
     if (n === -1) {
-      this.ponds[type].push(listener);
+      this.ponds[type].push(listener)
     }
 
-    return this;
+    return this
   }
 
   //=> 订阅一次
-  once (type, listener) {
-    if (typeof listener !== "function")
-      throw new error("the second param of 'once' must be a function");
+  once(type, listener) {
+    if (typeof listener !== 'function')
+      throw new error("the second param of 'once' must be a function")
 
-    let _this = this;
+    let _this = this
     let fn = () => {
       // this 为 window
-      _this.off(type, listener);
-      listener.apply(_this, arguments);
+      _this.off(type, listener)
+      listener.apply(_this, arguments)
     }
 
-    fn.source = listener; // 将源函数挂载到 fn 上
+    fn.source = listener // 将源函数挂载到 fn 上
 
-    return this.on(type, fn);
+    return this.on(type, fn)
   }
 
   //=> 执行容器中所有的方法
   // 参数为 type, ...args
-  emit (...args) {
-    let type = args.shift();
+  emit(...args) {
+    let type = args.shift()
 
-    let listeners = this.ponds[type];
-    if (!listeners) return;
+    let listeners = this.ponds[type]
+    if (!listeners) return
 
     // 锁死队列，防止事件池中的函数不断向事件池添加订阅，出现死循环
-    listeners = listeners.slice();
+    listeners = listeners.slice()
 
     // 进行逐个发布
-    listeners.forEach((item) => {
-      item(...args);
+    listeners.forEach(item => {
+      item(...args)
     })
 
-    return this;
+    return this
   }
 
   //=> 取消订阅
-  off (type, listener) {
-    let listeners = this.ponds[type];
-    if (!listeners) return this;
+  off(type, listener) {
+    let listeners = this.ponds[type]
+    if (!listeners) return this
     for (let i = 0; i < listeners.length; i++) {
       // 判断是否是源函数，这里考虑了 once 的特殊情况
       if (listeners[i] === listener || listeners[i].source === listener) {
-        listeners.splice(i, 1);
-        break;
+        listeners.splice(i, 1)
+        break
       }
     }
     if (listeners.length === 0) {
-      delete this.ponds[type]; // 防止空的时候还进行遍历判断
+      delete this.ponds[type] // 防止空的时候还进行遍历判断
     }
-    return this;
+    return this
   }
 
   //=> 获取所有的订阅者
-  listeners (type) {
+  listeners(type) {
     // 返回克隆数组
-    return (this.ponds[type] || []).slice();
+    return (this.ponds[type] || []).slice()
   }
 }
 ```

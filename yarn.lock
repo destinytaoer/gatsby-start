@@ -3262,7 +3262,7 @@ commander@2.17.x:
   resolved "https://registry.npm.taobao.org/commander/download/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
   integrity sha1-vXerfebelCBc6sxy8XFtKfIKd78=
 
-commander@^2.11.0, commander@^2.20.0:
+commander@^2.11.0, commander@^2.19.0, commander@^2.20.0:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
@@ -5718,6 +5718,14 @@ gatsby-page-utils@^0.0.28:
     micromatch "^3.1.10"
     slash "^3.0.0"
 
+gatsby-plugin-catch-links@^2.1.17:
+  version "2.1.17"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-catch-links/download/gatsby-plugin-catch-links-2.1.17.tgz#5568d9bb71c675711fd9dcb6c93da44e877e9099"
+  integrity sha1-VWjZu3HGdXEf2dy2yT2kTod+kJk=
+  dependencies:
+    "@babel/runtime" "^7.7.2"
+    escape-string-regexp "^1.0.5"
+
 gatsby-plugin-emotion@^4.1.13:
   version "4.1.13"
   resolved "https://registry.npm.taobao.org/gatsby-plugin-emotion/download/gatsby-plugin-emotion-4.1.13.tgz?cache=0&sync_timestamp=1572512200705&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgatsby-plugin-emotion%2Fdownload%2Fgatsby-plugin-emotion-4.1.13.tgz#303411b3ab9812e45039cee3e2904a54fc128036"
@@ -5748,6 +5756,14 @@ gatsby-plugin-netlify-cms@^4.1.26:
     mini-css-extract-plugin "^0.8.0"
     netlify-identity-widget "^1.5.5"
     webpack "^4.41.2"
+
+gatsby-plugin-nprogress@^2.1.14:
+  version "2.1.14"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-nprogress/download/gatsby-plugin-nprogress-2.1.14.tgz#f416aaf3092a579548f43a252ed0362b400e4c98"
+  integrity sha1-9Baq8wkqV5VI9DolLtA2K0AOTJg=
+  dependencies:
+    "@babel/runtime" "^7.7.2"
+    nprogress "^0.2.0"
 
 gatsby-plugin-offline@^3.0.18:
   version "3.0.18"
@@ -5822,6 +5838,26 @@ gatsby-react-router-scroll@^2.1.14:
     "@babel/runtime" "^7.6.3"
     scroll-behavior "^0.9.10"
     warning "^3.0.0"
+
+gatsby-remark-autolink-headers@^2.1.18:
+  version "2.1.18"
+  resolved "https://registry.npm.taobao.org/gatsby-remark-autolink-headers/download/gatsby-remark-autolink-headers-2.1.18.tgz#351c9365093c37e4f8b9f6861158ae1a2ac9bec3"
+  integrity sha1-NRyTZQk8N+T4ufaGEViuGirJvsM=
+  dependencies:
+    "@babel/runtime" "^7.7.2"
+    github-slugger "^1.2.1"
+    lodash "^4.17.15"
+    mdast-util-to-string "^1.0.7"
+    unist-util-visit "^1.4.1"
+
+gatsby-remark-katex@^3.1.17:
+  version "3.1.17"
+  resolved "https://registry.npm.taobao.org/gatsby-remark-katex/download/gatsby-remark-katex-3.1.17.tgz#ad4c82700a7f9dc6f6766370f373b49fc21d4601"
+  integrity sha1-rUyCcAp/ncb2dmNw83O0n8IdRgE=
+  dependencies:
+    "@babel/runtime" "^7.7.2"
+    remark-math "^1.0.6"
+    unist-util-visit "^1.4.1"
 
 gatsby-remark-prismjs@^3.3.23:
   version "3.3.23"
@@ -6158,7 +6194,7 @@ github-from-package@0.0.0:
   resolved "https://registry.npm.taobao.org/github-from-package/download/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"
   integrity sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4=
 
-github-slugger@^1.1.1:
+github-slugger@^1.1.1, github-slugger@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npm.taobao.org/github-slugger/download/github-slugger-1.2.1.tgz#47e904e70bf2dccd0014748142d31126cfd49508"
   integrity sha1-R+kE5wvy3M0AFHSBQtMRJs/UlQg=
@@ -8067,6 +8103,13 @@ jwt-decode@^2.1.0, jwt-decode@^2.2.0:
   resolved "https://registry.npm.taobao.org/jwt-decode/download/jwt-decode-2.2.0.tgz#7d86bd56679f58ce6a84704a657dd392bba81a79"
   integrity sha1-fYa9VmefWM5qhHBKZX3TkruoGnk=
 
+katex@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.npm.taobao.org/katex/download/katex-0.11.1.tgz#df30ca40c565c9df01a466a00d53e079e84ffaa2"
+  integrity sha1-3zDKQMVlyd8BpGagDVPgeehP+qI=
+  dependencies:
+    commander "^2.19.0"
+
 kebab-case@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/kebab-case/download/kebab-case-1.0.0.tgz#3f9e4990adcad0c686c0e701f7645868f75f91eb"
@@ -8638,7 +8681,7 @@ mdast-util-to-string@^1.0.2, mdast-util-to-string@^1.0.6:
   resolved "https://registry.npm.taobao.org/mdast-util-to-string/download/mdast-util-to-string-1.0.6.tgz#7d85421021343b33de1552fc71cb8e5b4ae7536d"
   integrity sha1-fYVCECE0OzPeFVL8ccuOW0rnU20=
 
-mdast-util-to-string@^1.0.5:
+mdast-util-to-string@^1.0.5, mdast-util-to-string@^1.0.7:
   version "1.0.7"
   resolved "https://registry.npm.taobao.org/mdast-util-to-string/download/mdast-util-to-string-1.0.7.tgz#62d8e9c6b2113070d8b497c7dc35bf12796f06ee"
   integrity sha1-YtjpxrIRMHDYtJfH3DW/EnlvBu4=
@@ -9624,6 +9667,11 @@ npmlog@^4.0.1, npmlog@^4.0.2, npmlog@^4.1.2:
     console-control-strings "~1.1.0"
     gauge "~2.7.3"
     set-blocking "~2.0.0"
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/nprogress/download/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha1-y480xTIT2JVyP8urkH6UIq28r7E=
 
 nth-check@^1.0.1, nth-check@^1.0.2, nth-check@~1.0.1:
   version "1.0.2"
@@ -11863,6 +11911,13 @@ relay-runtime@2.0.0:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
 
+remark-math@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npm.taobao.org/remark-math/download/remark-math-1.0.6.tgz#49eb3dd15d298734c9ae21673115389793af4d1b"
+  integrity sha1-Ses90V0phzTJriFnMRU4l5OvTRs=
+  dependencies:
+    trim-trailing-lines "^1.1.0"
+
 remark-parse@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npm.taobao.org/remark-parse/download/remark-parse-3.0.1.tgz#1b9f841a44d8f4fbf2246850265459a4eb354c80"
@@ -13691,7 +13746,7 @@ trim-repeated@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-trim-trailing-lines@^1.0.0:
+trim-trailing-lines@^1.0.0, trim-trailing-lines@^1.1.0:
   version "1.1.2"
   resolved "https://registry.npm.taobao.org/trim-trailing-lines/download/trim-trailing-lines-1.1.2.tgz#d2f1e153161152e9f02fabc670fb40bec2ea2e3a"
   integrity sha1-0vHhUxYRUunwL6vGcPtAvsLqLjo=

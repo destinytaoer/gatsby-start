@@ -6,7 +6,7 @@ html {
   position: relative;
 }
 .gatsby-highlight pre[class*='language-'] {
-  padding: 1.5rem 0px;
+  padding: 1.5rem 1em;
   font-size: 0.85rem;
 }
 .gatsby-highlight pre code {
@@ -15,7 +15,15 @@ html {
   line-height: 1.5;
   float: left;
   min-width: 100%;
-  padding: 0px 1.5rem;
+}
+.gatsby-highlight-code-line {
+  background-color: #feb;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #f99;
 }
 /* 代码块多颜色语言头 */
 .gatsby-highlight pre[class*='language-']::before {
@@ -26,7 +34,7 @@ html {
   letter-spacing: 0.075em;
   line-height: 1;
   position: absolute;
-  left: 1.5rem;
+  left: 1em;
   text-align: right;
   text-transform: uppercase;
   top: 0px;
