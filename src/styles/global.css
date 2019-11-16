@@ -1,3 +1,72 @@
 html {
   background-color: #fff;
 }
+.gatsby-highlight {
+  color: #36313d;
+  position: relative;
+}
+.gatsby-highlight pre[class*='language-'] {
+  padding: 1.5rem 0px;
+  font-size: 0.85rem;
+}
+.gatsby-highlight pre code {
+  display: block;
+  font-size: 100%;
+  line-height: 1.5;
+  float: left;
+  min-width: 100%;
+  padding: 0px 1.5rem;
+}
+/* 代码块多颜色语言头 */
+.gatsby-highlight pre[class*='language-']::before {
+  color: #232129;
+  font-size: 0.75rem;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  position: absolute;
+  left: 1.5rem;
+  text-align: right;
+  text-transform: uppercase;
+  top: 0px;
+  border-radius: 0px 0px 4px 4px;
+  padding: 0.25rem 0.5rem;
+}
+.gatsby-highlight pre[class='language-javascript']::before {
+  content: 'js';
+  background: rgb(247, 223, 30);
+}
+.gatsby-highlight pre[class='language-html']::before {
+  content: 'html';
+  color: #ffffff;
+  background: rgb(0, 90, 156);
+}
+.gatsby-highlight pre[class='language-text']::before {
+  content: 'text';
+}
+.gatsby-highlight pre[class='language-css']::before {
+  content: 'css';
+  color: #ffffff;
+  background: rgb(255, 152, 0);
+}
+.gatsby-highlight pre[class='language-graphql']::before {
+  content: 'GraphQL';
+  color: #ffffff;
+  background: rgb(225, 0, 152);
+}
+.gatsby-highlight pre[class='language-jsx']::before {
+  content: 'jsx';
+  background: rgb(97, 218, 251);
+}
+.gatsby-highlight pre[class='language-shell']::before {
+  content: 'shell';
+}
+.gatsby-highlight pre[class='language-bash']::before {
+  content: 'bash';
+}
+/* 行内代码样式 */
+:not(pre) > code[class*='language-'] {
+  /* color: #905; */
+  font-size: 0.85rem;
+}

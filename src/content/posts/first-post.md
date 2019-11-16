@@ -1,7 +1,7 @@
 ---
 title: 观察者模式与发布订阅模式的区别
 layout: post
-category: 前端技术
+categories: 前端技术
 tags:
   - JavaScript
 date: 2019-04-24 09:11:11
